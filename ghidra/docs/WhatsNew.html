@@ -1,0 +1,137 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<HTML>
+  <HEAD>
+    <TITLE> Ghidra What's New</TITLE>
+	<STYLE type="text/css" name="text/css">
+		li { font-family:times new roman; font-size:14pt; font-family:times new roman; font-size:14pt; margin-bottom: 8px; }
+		h1 { color:#000080; font-family:times new roman; font-size:28pt; font-style:italic; font-weight:bold; text-align:center; color:#000080; font-family:times new roman; }
+		h2 { padding-top:10px; color:#984c4c; font-family:times new roman; color:#984c4c; font-family:times new roman; font-size:18pt; font-weight:bold; }
+		h3 { margin-left:40px; padding-top:10px; font-family:times new roman; font-family:times new roman; font-size:14pt; font-weight:bold; }
+		h4 { margin-left:40px; padding-top:10px; font-family:times new roman; font-family:times new roman; font-size:14pt; font-weight:bold; }
+		p { margin-left:40px; font-family:times new roman; font-size:14pt; }
+		table, th, td { border: 1px solid black; border-collapse: collapse; font-size:10pt; }
+		td { font-family:times new roman; font-size:14pt; padding-left:10px; padding-right:10px; text-align:left; vertical-align:top; }
+		th { font-family:times new roman; font-size:14pt; font-weight:bold; padding-left:10px; padding-right:10px; text-align:left; }
+		code { color:black; font-family:courier new; font-size: 12pt; }
+		span.code { font-family:courier new font-size: 14pt; color:#000000; }
+		.gcode { font-family: courier new; font-weight: bold; font-size: 85%; }
+		.gtitle { font-style: italic; font-weight: bold; font-size: 95%; }
+	 </STYLE>
+  </HEAD>
+
+  <BODY>
+
+<H1>Ghidra: NSA Reverse Engineering Software</H2>
+    
+    <P>
+    Ghidra is a software reverse engineering (SRE) framework developed by NSA's Research Directorate.
+    This framework includes a suite of full-featured, high-end software analysis tools that enable
+    users to analyze compiled code on a variety of platforms including Windows, MacOS, and Linux.
+    Capabilities include disassembly, assembly, decompilation, debugging, emulation, graphing, and scripting, along with
+    hundreds of other features.  Ghidra supports a wide variety of processor instruction sets and 
+    executable formats and can be run in both user-interactive and automated modes.  Users may also
+    develop their own Ghidra plug-in components and/or scripts using the exposed API.  In addition there are
+    numerous ways to extend Ghidra such as new processors, loaders/exporters, automated analyzers,
+    and new visualizations.
+    </P>
+    
+    <P>
+    In support of NSA's Cybersecurity mission, Ghidra was built to solve scaling and teaming problems
+    on complex SRE efforts and to provide a customizable and extensible SRE research platform.  NSA
+    has applied Ghidra SRE capabilities to a variety of problems that involve analyzing malicious
+    code and generating deep insights for NSA analysts who seek a better understanding of potential
+    vulnerabilities in networks and systems.
+    </P>
+    <hr>   
+        
+    <H1>What's New in Ghidra 10.4</H1>
+    
+    <H2>The not-so-fine print: Please Read!</H2>
+    
+	<P>Ghidra 10.4 is fully backward compatible with project data from previous releases.
+	However, programs and data type archives which are created or modified in 10.4 will not be useable by an earlier Ghidra version. </P>
+
+	<P>This release includes new features and capabilities, performance improvements, quite a few bug fixes, and many pull-request
+	contributions. Thanks to all those who have contributed their time, thoughts, and code. The Ghidra user community thanks you too!</P>
+	
+	<P>IMPORTANT: Ghidra requires Java 17 JDK to run.  A newer version of Java may be acceptable but has not been fully tested.  Please see the
+	<a href="InstallationGuide.html">Ghidra Installation Guide</a> for additional information.</P>
+	
+	<P>NOTE: Please note that any programs imported with a Ghidra beta version or code built directly from source outside of a release tag may not be compatible
+	and may have flaws that won't be corrected by using this new release.  Any programs analyzed from a beta or other local master source build should be considered
+	experimental and re-imported and analyzed with a release version.  As an example, Ghidra 10.1 beta had an import flaw affecting symbol demangling that was not
+	correctable. Programs imported with previous release versions should upgrade correctly through various automatic upgrade mechanisms.  Any program
+	you will continue to reverse engineer should be imported fresh with a release version or a build you trust with the latest code fixes.</P>
+
+	<P>NOTE: Ghidra Server: The Ghidra 10.4 server is compatible with Ghidra 9.2 and later Ghidra clients.  Ghidra 10.4
+	clients are compatible with all 10.x and 9.x servers.  Although, due to potential Java version differences, it is recommended
+	that Ghidra Server installations older than 10.2 be upgraded.  Those using 10.2 and newer should not need a server upgrade.</P>
+	
+	<P>NOTE: Platform-specific native components can be built directly from a release distribution.
+	The distribution currently provides Linux x86-64, Windows x86-64, and macOS x86-64 native components.  If you have another platform,
+	for example a macOS M1 based system or a Linux ARM variant, the <span class="gcode">support/buildNatives</span> script can build the Decompiler,
+	demangler, and legacy PDB executables for your plaform.  Please see the "Building Ghidra Native Components" section in the
+	<a href="InstallationGuide.html#Build">Ghidra Installation Guide</a> for additional information.</P>
+	
+	<H2>Mach-O Improvements</H2>
+	
+	<P>Support for the Mach-O binary file format has received many updates, including more complete markup of load command data and Swift type metadata.
+	Support has also been added for threaded binding (<span class="gcode">BIND_OPCODE_THREADED</span>).  Libraries extracted from the <span class="gcode">dyld_shared_cache</span>
+	GFileSystem now contain a packed down <span class="gcode">__LINKEDIT</span> segment, significantly reducing the size of the resulting binary.</P>
+	
+	<P>Local symbols within <span class="gcode">dyld_shared_cache</span> extracted libraries are now included in place of <span class="gcode">&lt;redacted&gt;</span> symbols.</P>
+	  
+	<P>In addition to searching local filesystem directories, library dependencies can now be loaded from the top-level of any GFileSystem-supported container file.  This is allowed for all Import file 
+	formats that support the loading of library dependencies. For example, this enables loading library dependencies directly from within a <span class="gcode">dyld_shared_cache</span> file without the 
+	need to export them first to the local filesystem.</P>
+	
+	<H2>Accessibility Improvements</H2>
+	
+	<P>Ghidra's Listing, Byte Viewer, and Decompiler components have been updated to provide initial support for screen readers. These are custom Ghidra components
+	and as such do not have the typical built-in Java Swing support for screen readers.  Other Ghidra components use standard Java Swing widgets and work
+	out of the box with screen readers.
+	</P>
+	
+	<H2>Instruction Length Override</H2>
+	
+	<P>Added the ability to reduce an instruction's effective code unit length to facilitate overlapping instructions when flows into the middle of
+    an instruction occur (i.e., offcut flow).  This length override does not impact the actual number of bytes parsed.  By reducing the first instruction's 
+    effective code unit length, disassembly of the offcut location may be performed utilizing trailing bytes shared with the first instruction.  
+    The first instruction will retain its original fallthrough, therefore overlapping instruction(s) which follow should generally be fully contained 
+    within the first instruction's parsed byte length. The need for this has been observed in the x86 Linux libc library
+    where there may be a flow around a <span class="gcode">LOCK</span> prefix byte.
+    </P>
+	
+	<H2>Analysis</H2>
+
+	<P>Function body creation has been reworked, when code from multiple functions overlap, to favor contiguous functions.  There have been instances where compilers
+	share portions of another functions code, especially common return code.  Where previously the jump to the other function would have been turned into a call, and
+	a portion of the other function split into two, the shared code will now belong to the function that falls into the shared code if possible.
+	Previously there was also a potential for arbitrary function bodies depending on which function was analzyed first.
+	These changes could have an affect on version tracking in some instances where the original binary was analyzed with an older version of Ghidra.</P>
+	
+	<H2>Diff Improvement</H2>
+	
+	<P>Diff can now be performed between two open programs which may include files previously opened via a Ghidra-URL.  Previously, Diff only allowed
+	a file from the active project to be selected.</P>
+	
+	<H2>GoLang Version Support</H2>
+	
+	<P>GoLang versions 1.17, 1.19, and 1.20 have been added.  Previously only version 1.18 was supported.  A bug in the decompiler triggered
+	by GoLang binaries has also been fixed.</P>
+	
+	<H2>Undo/Redo Change List</H2>
+	<P>Undo and Redo now have lists of transactions that can be undone or redone.  This change makes it easy to choose a set of transactions to be undone/redone by choosing
+	an item further down the list instead of pressing undo/redo repeatedly</P>
+	
+    <H2>Additional Bug Fixes and Enhancements</H2>
+    <P> Numerous other bug fixes and improvements are fully listed in the <a href="ChangeHistory.html">ChangeHistory</a> file.</P>
+    		   
+    <BR>
+    <P align="center">
+    <B><a href="https://www.nsa.gov/ghidra"> https://www.nsa.gov/ghidra</a></B>
+    </P>
+
+  </BODY>
+</HTML>
