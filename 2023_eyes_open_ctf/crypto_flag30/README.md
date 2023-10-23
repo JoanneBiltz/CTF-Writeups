@@ -3,7 +3,7 @@
 ## Introduction
 
 <p align="left">
-  <img height=700 img src=./readme_assets/flag30-challenge.PNG/>
+  <img height=500 img src=./readme_assets/flag30-challenge.PNG/>
 </p>
 
 You are given a file without an extension.
