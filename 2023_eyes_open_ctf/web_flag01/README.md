@@ -3,7 +3,7 @@
 ## Introduction
 
 <p align="left">
-  <img height=700 img src=./readme_assets/flag01-challenge.PNG/>
+  <img height=500 img src=./readme_assets/flag01-challenge.PNG/>
 </p>
 
 http://10.8.0.14:9909/
@@ -13,7 +13,7 @@ http://10.8.0.14:9909/
 Use inspect tool to find the flag.
 
 <p align="left">
-  <img height=300 img src=./readme_assets/flag.png/>
+  <img height=400 img src=./readme_assets/flag.png/>
 </p>
 
 ## Flag
