@@ -3,7 +3,7 @@
 ## Introduction
 
 <p align="left">
-  <img height=700 img src=./readme_assets/bridge-challenge.PNG/>
+  <img height=500 img src=./readme_assets/bridge-challenge.PNG/>
 </p>
 
 ## Solution

@@ -3,7 +3,7 @@
 ## Introduction
 
 <p align="left">
-  <img height=700 img src=./readme_assets/query-challenge.PNG/>
+  <img height=400 img src=./readme_assets/query-challenge.PNG/>
 </p>
 
 ## Solution

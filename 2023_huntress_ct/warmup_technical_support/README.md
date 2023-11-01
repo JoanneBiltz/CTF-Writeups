@@ -3,7 +3,7 @@
 ## Introduction
 
 <p align="left">
-  <img height=700 img src=./readme_assets/technical-challenge.PNG/>
+  <img height=400 img src=./readme_assets/technical-challenge.PNG/>
 </p>
 
 ## Solution
@@ -11,7 +11,7 @@
 In the Huntress Discord go to `ctf-open-ticket` for the flag.
 
 <p align="left">
-  <img height=300 img src=./readme_assets/ticket-flag.PNG/>
+  <img height=400 img src=./readme_assets/ticket-flag.PNG/>
 </p>
 
 ## Flag

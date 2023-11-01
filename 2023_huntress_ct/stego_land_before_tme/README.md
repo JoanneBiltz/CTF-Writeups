@@ -3,7 +3,7 @@
 ## Introduction
 
 <p align="left">
-  <img height=700 img src=./readme_assets/land-challenge.PNG/>
+  <img height=400 img src=./readme_assets/land-challenge.PNG/>
 </p>
 
 ## Solution
@@ -15,7 +15,7 @@ The description mentions [Isteg](https://github.com/rafiibrahim8/iSteg).
 Run isteg and get the flag.
 
 <p align="left">
-  <img height=300 img src=./readme_assets/land-flag.PNG/>
+  <img height=500 img src=./readme_assets/land-flag.PNG/>
 </p>
 
 
