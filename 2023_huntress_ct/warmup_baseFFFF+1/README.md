@@ -3,7 +3,7 @@
 ## Introduction
 
 <p align="left">
-  <img height=700 img src=./readme_assets/base-challenge.PNG/>
+  <img height=400 img src=./readme_assets/base-challenge.PNG/>
 </p>
 
 ## Solution
@@ -22,7 +22,7 @@ Ran the ciphertext through `cyberchef` and `dcode` but got nothing. I thought th
 I was overthinking this. The title is `baseffff+1`. `ffff = 65535 + 1 = 65536`. Convert from `base65536` using [Better Converter](https://www.better-converter.com/Encoders-Decoders/Base65536-Decode) to get the flag.
 
 <p align="left">
-  <img height=300 img src=./readme_assets/base-flag.PNG/>
+  <img height=400 img src=./readme_assets/base-flag.PNG/>
 </p>
 
 ## Flag
