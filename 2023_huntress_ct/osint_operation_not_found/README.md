@@ -3,7 +3,7 @@
 ## Introduction
 
 <p align="left">
-  <img height=700 img src=./readme_assets/notfound-challenge.PNG/>
+  <img height=600 img src=./readme_assets/notfound-challenge.PNG/>
 </p>
 
 ## Solution
@@ -11,7 +11,7 @@
 The link takes you to a street view of a building that you have to pinpoint. You can see construction is being done to the building.
 
 <p align="left">
-  <img height=300 img src=./readme_assets/notfound-bg.PNG/>
+  <img height=400 img src=./readme_assets/notfound-bg.PNG/>
 </p>
 
 I can't see much else in the street scene that looks like it could be a clue.
@@ -26,7 +26,7 @@ https://www.brasfieldgorrie.com/2019/. Nothing really looks like the building bu
 Did an image search on the building and it is the Georgia Tech Library. 
 
 <p align="left">
-  <img height=300 img src=./readme_assets/osint-reverse.PNG/>
+  <img height=400 img src=./readme_assets/osint-reverse.PNG/>
 </p>
 
 ## Flag
