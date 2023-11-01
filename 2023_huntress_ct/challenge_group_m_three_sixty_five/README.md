@@ -3,7 +3,7 @@
 ## Introduction
 
 <p align="left">
-  <img height=700 img src=./readme_assets/m365-challenge.PNG/>
+  <img height=400 img src=./readme_assets/m365-challenge.PNG/>
 </p>
 
 ## Solution
@@ -17,7 +17,7 @@ Googled `aadinternals powershell` to find commands to help with the challenge. I
 Using `Get-AADIntTenantDetails` you get he flag for part 1.
 
 <p align="left">
-  <img height=300 img src=./readme_assets/m3653.PNG/>
+  <img height=400 img src=./readme_assets/m3653.PNG/>
 </p>
 
 **`flag{dd7bf230fde8d4836917806aff6a6b27}`**
@@ -38,7 +38,7 @@ Using `Get-AADIntConditionalAccessPolicies` you get the flag for part 2.
 Using `Get-AADIntTeamsMessages | Format-Table id,content,deletiontime,*type*,DisplayName` we get the flag for part 3.
 
 <p align="left">
-  <img height=300 img src=./readme_assets/m3655.PNG/>
+  <img height=200 img src=./readme_assets/m3655.PNG/>
 </p>
 
 **`flag{f17cf5c1e2e94ddb62b98af0fbbd46e1}`**
@@ -50,7 +50,7 @@ Using `Get-AADIntTeamsMessages | Format-Table id,content,deletiontime,*type*,Dis
 Using `Get-AADIntUsers` we get the flag for part 4.
 
 <p align="left">
-  <img height=300 img src=./readme_assets/m3655.PNG/>
+  <img height=200 img src=./readme_assets/m3655.PNG/>
 </p>
 
 **`flag{1e674f0dd1434f2bb3fe5d645b0f9cc3}`**
