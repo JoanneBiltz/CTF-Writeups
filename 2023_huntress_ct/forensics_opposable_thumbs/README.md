@@ -3,7 +3,7 @@
 ## Introduction
 
 <p align="left">
-  <img height=700 img src=./readme_assets/thumbs-challenge.PNG/>
+  <img height=400 img src=./readme_assets/thumbs-challenge.PNG/>
 </p>
 
 ## Solution
@@ -14,7 +14,7 @@ Installed a [ThumbCache Viewer](https://thumbcacheviewer.github.io/) and looking
 
 
  <p align="left">
-  <img height=300 img src=./readme_assets/thumb-flag.PNG/>
+  <img height=400 img src=./readme_assets/thumb-flag.PNG/>
 </p>
 
 ## Flag

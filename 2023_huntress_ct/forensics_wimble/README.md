@@ -3,7 +3,7 @@
 ## Introduction
 
 <p align="left">
-  <img height=700 img src=./readme_assets/wimble-challenge.PNG/>
+  <img height=400 img src=./readme_assets/wimble-challenge.PNG/>
 </p>
 
 ## Solution
@@ -11,7 +11,7 @@
 Using `file` on the downloaded file gives us: `fetch: Windows imaging (WIM) image v1.13, XPRESS compressed, reparse point fixup`
 
 <p align="left">
-  <img height=300 img src=./readme_assets/wimble-file.PNG/>
+  <img height=200 img src=./readme_assets/wimble-file.PNG/>
 </p>
  
 Windows Imaging Format (WIM) is used for the creation and distribution of disk image files. 

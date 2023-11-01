@@ -3,7 +3,7 @@
 ## Introduction
 
 <p align="left">
-  <img height=700 img src=./readme_assets/memory-challenge.PNG/>
+  <img height=400 img src=./readme_assets/memory-challenge.PNG/>
 </p>
 
 ## Solution
@@ -17,13 +17,13 @@ Reinstalled `Volatiltiy3` in Kali and got it working. Worked my way through the 
 Used `python3 vol.py -f /media/sf_Kali_Shared/huntress/memory/image/image.bin  windows.hashdump.Hashdump` and received a few hashes to check out.
 
 <p align="left">
-  <img height=300 img src=./readme_assets/memory-hash.PNG/>
+  <img height=200 img src=./readme_assets/memory-hash.PNG/>
 </p>
 
 Cracked the nthash `ab395607d3779239b83eed9906b4fb92` using [CrackStation](https://crackstation.net/) and found `goldfish#`.
 
 <p align="left">
-  <img height=300 img src=./readme_assets/memory-crack.PNG/>
+  <img height=200 img src=./readme_assets/memory-crack.PNG/>
 </p>
 
 Used [md5hashgenerator](https://www.md5hashgenerator.com/) to generate an MD5 hash of `goldfish#` for the flag.

@@ -3,7 +3,7 @@
 ## Introduction
 
 <p align="left">
-  <img height=700 img src=./readme_assets/traffic-challenge.PNG/>
+  <img height=400 img src=./readme_assets/traffic-challenge.PNG/>
 </p>
 
 ## Solution
@@ -13,7 +13,7 @@ Unzip the traffic file and you have a bunch of zipped log files. Unzip the log f
 You see `sketchysite.github.io`.
 
 <p align="left">
-  <img height=300 img src=./readme_assets/sketchy.PNG/>
+  <img height=500 img src=./readme_assets/sketchy.PNG/>
 </p>
 
 Go to the site and get the flag.
