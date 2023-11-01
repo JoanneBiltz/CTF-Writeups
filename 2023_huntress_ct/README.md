@@ -2,10 +2,10 @@
 
 
 <p align="left">
-  <img height=700 img src=./readme_assets/huntressctf.png/>
+  <img height=500 img src=./huntressctf.png/>
 </p>
 
 <p align="left">
-  <img height=700 img src=./readme_assets/rank.PNG/>
+  <img height=500 img src=./rank.PNG/>
 </p>
 
