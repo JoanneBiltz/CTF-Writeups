@@ -3,7 +3,7 @@
 ## Introduction
 
 <p align="left">
-  <img height=700 img src=./readme_assets/chicken-challenge.PNG/>
+  <img height=400 img src=./readme_assets/chicken-challenge.PNG/>
 </p>
 
 ## Solution
@@ -11,7 +11,7 @@
 The file does not have an extension. Opening it up in notepad looks interesting.
 
 <p align="left">
-  <img height=700 img src=./readme_assets/icons.PNG/>
+  <img height=200 img src=./readme_assets/icons.PNG/>
 </p>
 
 Using `file` on the file says we have `Unicode text, UTF-8 text`, with no line terminators.
