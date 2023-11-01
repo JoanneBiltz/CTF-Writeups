@@ -3,7 +3,7 @@
 ## Introduction
 
 <p align="left">
-  <img height=700 img src=./readme_assets/rogue-challenge.PNG/>
+  <img height=400 img src=./readme_assets/rogue-challenge.PNG/>
 </p>
 
 ## Solution
@@ -11,7 +11,7 @@
 The file is a csv file that I opened in excel. Searching for debra brings you to the section where someone changes her password then makes a bunch of rules. At the end of each rule is a letter for the flag.
 
 <p align="left">
-  <img height=300 img src=./readme_assets/rogue-flag.PNG/>
+  <img height=700 img src=./readme_assets/rogue-flag.PNG/>
 </p>
 
 ## Flag
