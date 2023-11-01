@@ -3,7 +3,7 @@
 ## Introduction
 
 <p align="left">
-  <img height=700 img src=./readme_assets/f12-challenge.PNG/>
+  <img height=400 img src=./readme_assets/f12-challenge.PNG/>
 </p>
 
 ## Solution
@@ -11,7 +11,7 @@
 You start the instance and click on the url to start the challenge. It is a button that gives you the flag. It flashes in a popup box so quickly that you can't see it.
 
 <p align="left">
-  <img height=300 img src=./readme_assets/button.PNG/>
+  <img height=200 img src=./readme_assets/button.PNG/>
 </p>
 	  
 Looking at the source code you find a reference to `/capture_the_flag.html` 
@@ -23,7 +23,7 @@ Looking at the source code you find a reference to `/capture_the_flag.html`
 Copy that into the url and you are at another page with a green button that doesn't seem to do anything.
  
  <p align="left">
-  <img height=300 img src=./readme_assets/button2.PNG/>
+  <img height=200 img src=./readme_assets/button2.PNG/>
 </p>
 
 Look at the source code to find the flag.
