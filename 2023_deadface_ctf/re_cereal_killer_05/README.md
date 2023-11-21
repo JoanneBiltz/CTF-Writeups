@@ -17,7 +17,7 @@ You are given a binary file.
 Run the binary to see what it does:
 
 <p align="left">
-  <img height=500 img src=./readme_assets/cereal5-run.PNG/>
+  <img height=200 img src=./readme_assets/cereal5-run.PNG/>
 </p>
 
 Nothing in `strings`.
@@ -28,7 +28,7 @@ Looking at the binary in [dogbolt](https://dogbolt.org/) I found the password fo
 Running the binary with the password gives us the flag.
 
 <p align="left">
-  <img height=500 img src=./readme_assets/cereal5-flag.PNG/>
+  <img height=200 img src=./readme_assets/cereal5-flag.PNG/>
 </p>
 
 ## Flag
