@@ -28,7 +28,8 @@ Each, all, are away to their dwellings of rest.
 IV. The maid, on whose cheek, on whose brow, in whose eye,
 Shone beauty and pleasure––her triumphs are by;
 And the memories of those who have loved her and praised
-Are alike from the minds of the living erased.```
+Are alike from the minds of the living erased.
+```
 
 You are given a text file that contains the entire poem.
 
@@ -43,7 +44,7 @@ Infra vexillum secretum est means `Below is the secret flag` in Latin.
 Using [CyberChef](https://gchq.github.io/CyberChef/) magic on `heP3fXSv8WpeAaBwXNnKv1xjUDfdauBjhVhMwjxnFPfQ2Zin4gKXN7o5pKjxYdotNz5ern57Dk2xX` we get the flag.
 
 <p align="left">
-  <img height=700 img src=./readme_assets/knox-flag.PNG/>
+  <img height=300 img src=./readme_assets/knox-flag.PNG/>
 </p>
 
 ## Flag
