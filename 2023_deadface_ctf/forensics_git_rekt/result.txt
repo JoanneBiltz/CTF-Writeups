@@ -1,0 +1,1 @@
+flag{SpectralSecrets#2023}
