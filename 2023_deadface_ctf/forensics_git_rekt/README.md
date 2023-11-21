@@ -15,7 +15,7 @@ You are given a pcap file.
 Using `Wireshark` use filters to search for password.
 
 <p align="left">
-  <img height=700 img src=./readme_assets/rekt-flag.PNG/>
+  <img height=500 img src=./readme_assets/rekt-flag.PNG/>
 </p>
 
 ## Flag
