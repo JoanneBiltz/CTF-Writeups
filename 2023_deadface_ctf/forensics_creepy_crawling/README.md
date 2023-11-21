@@ -17,7 +17,7 @@ You are given a pcap file
 I just searched for SSH as a string and looked at the packets until I found the right one.
 
 <p align="left">
-  <img height=700 img src=./readme_assets/creepy-flag.PNG/>
+  <img height=300 img src=./readme_assets/creepy-flag.PNG/>
 </p>
 
 ## Flag
