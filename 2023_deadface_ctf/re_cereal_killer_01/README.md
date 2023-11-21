@@ -19,7 +19,7 @@ You are given a binary file.
 Run the binary to see what it does:
 
 <p align="left">
-  <img height=500 img src=./readme_assets/cereal1-run.PNG/>
+  <img height=300 img src=./readme_assets/cereal1-run.PNG/>
 </p>
 
 Using `strings` on the binary we find an interesting string of text 
