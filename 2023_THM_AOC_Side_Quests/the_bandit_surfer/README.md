@@ -9,7 +9,7 @@ To find the QR code that leads to this challenge you need to complete the task i
 Look around in the git repo files and you will find a calendar image that contains the qr code in it.
 
 <p align="left">
-  <img height=300 img src=./readme_assets/qr-code4.png/>
+  <img height=300 img src=./readme_assets/qr-code4.PNG/>
 </p>
 
 Scan the QR code and you are in! Welcome to [The Bandit Surfer](https://tryhackme.com/room/surfingyetiiscomingtotown)!
