@@ -4,49 +4,66 @@ This was a team effort with 4 other THM Discord members.
 
 ## Finding the QR Code
 
-To find the QR code that leads to this challenge you need to play the game in Day 6 (Memory corruption, Memories of Christmas Past) of [THM Advent of Cyber '23](https://tryhackme.com/room/adventofcyber2023). 
+To find the QR code that leads to this challenge you need to play the game in Day 6 (Memory corruption, Memories of Christmas Past) of [THM Advent of Cyber '23](https://tryhackme.com/room/adventofcyber2023).
+
 1. First you need to figure out that you can acquire a white yeti ornament by overflowing the buffer with the letter a in the inventory section.
+   
 <p align="left">
   <img height=50 img src=./readme_assets/white-yeti.PNG/>
 </p>
+
 2. Go back to the shopkeeper and he will tell you the yeti is a fake but you can buy a real blue yeti if you have enough coins. Apparently you don't have enough.
 3. Figure out what the max amount of coins you can get using the ascii characters on your keyboard. (4 tildes `~~~~`)
 4. Overflow the buffer with the 4 tildes and go back to the shopkeeper. He will trade your white yeti for the blue yeti.
+   
 <p align="left">
   <img height=50 img src=./readme_assets/blue-yeti.PNG/>
 </p>
+
 5. Once you have the blue yeti, a new character will appear in the game. Let's call him Glitch. Go to Glitch and have a conversation. Take note of the hints and instructions he is giving you.
+   
 <p align="left">
   <img height=400 img src=./readme_assets/Capture.PNG/>
 </p>
+
 <p align="left">
   <img height=135 img src=./readme_assets/message0.PNG/>
 </p>
+
 <p align="left">
   <img height=130 img src=./readme_assets/message01.PNG/>
 </p>
+
 <p align="left">
   <img height=125 img src=./readme_assets/message.PNG/>
 </p>
+
 <p align="left">
   <img height=150 img src=./readme_assets/message2.PNG/>
 </p>
+
 6. You need to overflow the buffer with all of the conditions met. To get exactly 31337 coins use `iz` in the coin section.
+   
 <p align="left">
+	
   <img height=400 img src=./readme_assets/correct.PNG/>
 </p>
+
 7. Once you have the buffer correct you need to do the `30 Lives Code` moves. I had to google it.
 `30 Lives - Highlight the number of players, and then press ***UP, UP, DOWN, DOWN, LEFT, RIGHT, LEFT, RIGHT, B, A***`
-8. The game will completely glitch. At that point you will be able to roam around until you find the QR code.
+
+9. The game will completely glitch. At that point you will be able to roam around until you find the QR code.
+    
 <p align="left">
   <img height=400 img src=./readme_assets/QR.PNG/>
 </p>
+
 9. Scan the QR code and you are in! Welcome to [Snowy ARMageddon](https://tryhackme.com/room/armageddon2r)!
 
 ## Snowy ARMageddon Introduction
 
 <p align="left">
-  <img height=200 img src=./readme_assets/challenge.PNG/>
+  <img height=150 img src=./readme_assets/challenge.PNG/>
 </p>
 
 Ho ho, lads and lasses! Van Spy's whispers are golden! By pickin' apart the packet data we've sniffed out a mysterious device in the CyberPolice building. Seems like this old thing's been forgotten in their tech upgrade blizzard. It's as neglected as a lone iceberg.
@@ -73,7 +90,7 @@ You are give an IP address and 2 questions to answer.
 If you look at the header image for the challenge you will see several hints.
 
 <p align="left">
-  <img height=300 img src=./readme_assets/hints.png/>
+  <img height=250 img src=./readme_assets/hints.png/>
 </p>
  It shows a camera, a leaf, a police badge, and what looks like the memory buffer locations for the challenge to get into this room. The leaf is mongodb.
 
@@ -103,7 +120,7 @@ The first thing I did was run nmap on the IP address.
 We have several ports to check out. Let's start with the most obvious and go to port 8080 in a browser.
 
 <p align="left">
-  <img height=300 img src=./readme_assets/website-oops.png/>
+  <img height=400 img src=./readme_assets/website-oops.PNG/>
 </p>
 
 Definitely an attack target.
@@ -116,7 +133,7 @@ Doing a -sV scan on port 50628 gives us "http://nc-227wf-hd-720p:50628/default.a
 Going to the port in a browser `http:\\host:50628` gives us: 
 
 <p align="left">
-  <img height=300 img src=./readme_assets/cam.png/>
+  <img height=400 img src=./readme_assets/cam.png/>
 </p>
 
 *Trivision NC-227WF HD 720P*
@@ -125,13 +142,13 @@ Click on either button brings you to a login screen. Another attack target. Rese
 We found several interesting articles [1](https://www.theregister.com/2016/11/30/iot_cameras_compromised_by_long_url/), [2](https://no-sec.net/arm-x-challenge-breaking-the-webs/) about using buffer overflow to hijack the camera. The cam is definitely vulnerable.
 
 <p align="left">
-  <img height=300 img src=./readme_assets/cam-vuln.png/>
+  <img height=400 img src=./readme_assets/cam-vuln.png/>
 </p>
 
 http://host:50628/admin/login.asp also pops up a login without loading the site.
 
 <p align="left">
-  <img height=300 img src=./readme_assets/admin_loginasp.png/>
+  <img height=400 img src=./readme_assets/admin_loginasp.PNG/>
 </p>
 
 The team spent hours using hydra to try to brute force both the 8080 and 50628 logins with no luck. 
@@ -220,7 +237,7 @@ Searching through the directories and files we found a username and password in 
 TABLE=users  
 ROW=0  
 **name=admin**  
-**password=Y3tiStarCur!ouspassword=admin**  
+**password=[REDACTED]**  
 group=administrators prot=0 disable=0
 ```
 
@@ -228,7 +245,7 @@ In your browser go to `http:\\host:50628`
 Use the login info to login and get the flag for Question 1.
 
 <p align="left">
-  <img height=300 img src=./readme_assets/flag1.PNG/>
+  <img height=500 img src=./readme_assets/flag1.PNG/>
 </p>
 
 One down and one to go!
@@ -236,7 +253,7 @@ One down and one to go!
 There's a forbidden page on http://host:8080/login.php but if you access it using /login.php/ there's a login panel.
 
 <p align="left">
-  <img height=300 img src=./readme_assets/login2.PNG/>
+  <img height=400 img src=./readme_assets/login2.PNG/>
 </p>
 
 A different team member ran across a [Nosql-MongoDB Injection script](https://github.com/an0nlk/Nosql-MongoDB-injection-username-password-enumeration) that could be used to find usernames and passwords from the website.
@@ -244,7 +261,7 @@ A different team member ran across a [Nosql-MongoDB Injection script](https://gi
 Login Names: 
 
 <p align="left">
-  <img height=300 img src=./readme_assets/login-names.png/>
+  <img height=400 img src=./readme_assets/login-names.png/>
 </p>
 
 Passwords:
