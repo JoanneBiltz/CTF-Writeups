@@ -88,7 +88,7 @@ rh:8000/download?id=3
 Trying other numbers we find image 4.
 
 <p align="left">
-  <img height=300 img src=./readme_assets/download.PNG/>
+  <img height=300 img src=./readme_assets/download.png/>
 </p>
 
 Any other number brings us to an error page that has some interesting information on it.
