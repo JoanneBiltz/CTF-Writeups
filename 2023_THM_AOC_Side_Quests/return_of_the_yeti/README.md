@@ -6,17 +6,17 @@ Using the QR code you pieced together in Advent of Cyber Side Quest Main you are
  .
 
 <p align="left">
-  <img height=700 img src=./readme_assets/qr-code-1.png/>
+  <img height=500 img src=./readme_assets/qr-code-1.png/>
 </p>
 
 Scan the QR code and you are in! Welcome to [Return of the Yeti](https://tryhackme.com/room/adv3nt0fdbopsjcap)!
 
 <p align="left">
-  <img height=500 img src=./readme_assets/challenge.PNG/>
+  <img height=200 img src=./readme_assets/challenge.PNG/>
 </p>
 
 <p align="left">
-  <img height=500 img src=./readme_assets/hints.PNG/>
+  <img height=300 img src=./readme_assets/hints.PNG/>
 </p>
 
 
@@ -33,7 +33,7 @@ You are give a file `VanSpy.pcapng` and 5 questions to answer.
 Open the .pcapng file in Wireshark to begin. You should immediately see the answer to Q1 in the Beacon packets.
 
 <p align="left">
-  <img height=300 img src=./readme_assets/wifi-network.PNG/>
+  <img height=200 img src=./readme_assets/wifi-network.PNG/>
 </p>
 
 To find the answer to Q2, the wifi password, we need to find the right tool to use. After a little googling I found that `aircrack-ng` was the best tool for this.
@@ -49,13 +49,13 @@ Now use the information you gathered to run `aircrack-ng` to get the password.
 `aircrack-ng -w /usr/share/wordlists/rockyou.txt -b 22:c7:12:c7:e2:35 VanSpy.pcap`
 
 <p align="left">
-  <img height=300 img src=./readme_assets/aircrack-ng.PNG/>
+  <img height=400 img src=./readme_assets/aircrack-ng.PNG/>
 </p>
 
 Now that we have the wifi network name and password we can add it to the IEEE 802.11 protocol preferences. Use the information from [wireshark.org]*(https://wiki.wireshark.org/HowToDecrypt802.11) for more information.
 
 <p align="left">
-  <img height=300 img src=./readme_assets/decryption.PNG/>
+  <img height=200 img src=./readme_assets/decryption.PNG/>
 </p>
 
 *edit/ preferences/ protocols/ IEEE 802.11/ click edit/ add wps-pwd*
@@ -108,20 +108,20 @@ This should decrypt the TLS and RDP packets and we should be ready to search for
 Going back to the TLS stream will give you everything you need.
 
 <p align="left">
-  <img height=300 img src=./readme_assets/tls-capture1.PNG/>
+  <img height=200 img src=./readme_assets/tls-capture1.PNG/>
 </p>
 
 Case number is in packet 17870 - in the decrypted TLS tab
 
 <p align="left">
-  <img height=300 img src=./readme_assets/packet.PNG/>
+  <img height=200 img src=./readme_assets/packet.PNG/>
 </p>
 
 
 In packet `34383` you find `y.e.t.i.k.e.y.1...t.x.t`. Now we have to find the contents of the file.
 
 <p align="left">
-  <img height=300 img src=./readme_assets/tls-capture2.PNG/>
+  <img height=200 img src=./readme_assets/tls-capture2.PNG/>
 </p>
 
 In packet `35686` we find a string of hex
