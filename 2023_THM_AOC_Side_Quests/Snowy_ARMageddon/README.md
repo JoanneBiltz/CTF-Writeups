@@ -17,7 +17,7 @@ To find the QR code that leads to this challenge you need to play the game in Da
 </p>
 5. Once you have the blue yeti, a new character will appear in the game. Let's call him Glitch. Go to Glitch and have a conversation. Take note of the hints and instructions he is giving you.
 <p align="left">
-  <img height=200 img src=./readme_assets/capture.PNG/>
+  <img height=400 img src=./readme_assets/Capture.PNG/>
 </p>
 <p align="left">
   <img height=135 img src=./readme_assets/message0.PNG/>
@@ -31,22 +31,22 @@ To find the QR code that leads to this challenge you need to play the game in Da
 <p align="left">
   <img height=150 img src=./readme_assets/message2.PNG/>
 </p>
-6. You need to overflow the buffer with all of the conditions met. To get exactly 31337 coins use iz in the coin section.
+6. You need to overflow the buffer with all of the conditions met. To get exactly 31337 coins use `iz` in the coin section.
 <p align="left">
-  <img height=300 img src=./readme_assets/correct.PNG/>
+  <img height=400 img src=./readme_assets/correct.PNG/>
 </p>
 7. Once you have the buffer correct you need to do the `30 Lives Code` moves. I had to google it.
 `30 Lives - Highlight the number of players, and then press ***UP, UP, DOWN, DOWN, LEFT, RIGHT, LEFT, RIGHT, B, A***`
 8. The game will completely glitch. At that point you will be able to roam around until you find the QR code.
 <p align="left">
-  <img height=300 img src=./readme_assets/QR.PNG/>
+  <img height=400 img src=./readme_assets/QR.PNG/>
 </p>
 9. Scan the QR code and you are in! Welcome to [Snowy ARMageddon](https://tryhackme.com/room/armageddon2r)!
 
 ## Snowy ARMageddon Introduction
 
 <p align="left">
-  <img height=500 img src=./readme_assets/challenge.PNG/>
+  <img height=200 img src=./readme_assets/challenge.PNG/>
 </p>
 
 Ho ho, lads and lasses! Van Spy's whispers are golden! By pickin' apart the packet data we've sniffed out a mysterious device in the CyberPolice building. Seems like this old thing's been forgotten in their tech upgrade blizzard. It's as neglected as a lone iceberg.
@@ -80,7 +80,7 @@ If you look at the header image for the challenge you will see several hints.
 And this was posted in Discord.
 
 <p align="left">
-  <img height=300 img src=./readme_assets/thm-hint.png/>
+  <img height=100 img src=./readme_assets/thm-hint.png/>
 </p>
 
 ## Enumeration
