@@ -9,7 +9,7 @@ To find the QR code that leads to this challenge you need to complete the task i
 Look around in the git repo files and you will find a calendar image that contains the qr code in it.
 
 <p align="left">
-  <img height=300 img src=./readme_assets/qr-code4.PNG/>
+  <img height=500 img src=./readme_assets/qr-code4.png/>
 </p>
 
 Scan the QR code and you are in! Welcome to [The Bandit Surfer](https://tryhackme.com/room/surfingyetiiscomingtotown)!
@@ -17,7 +17,7 @@ Scan the QR code and you are in! Welcome to [The Bandit Surfer](https://tryhackm
 ## The Bandit Surfer Introduction
 
 <p align="left">
-  <img height=300 img src=./readme_assets/challenge.PNG/>
+  <img height=100 img src=./readme_assets/challenge.PNG/>
 </p>
 
 <p align="left">
@@ -37,11 +37,11 @@ But while Frost-eau's twiddlin' his thumbs waitin' for clues, I am already leapi
 </p>
 
 You are given an IP address and 3 questions to answer.
-
+```
 *Question 1 - What is the user flag?*
 *Question 2 - What is the root flag?*
 *Question 3 - What is the yetikey4.txt flag?*
-
+```
 ## Solution
 
 The first thing I did was run nmap on the IP address. 
@@ -56,6 +56,7 @@ We find a website with 3 elf images you can download by clicking on them. I down
 
 Using gobuster we find 2 directories to explore.
 
+```
 Gobuster dir -u http://rh:8000/ -w /usr/share/wordlists/gobuster/common.txt  
 ===============================================================  
 Gobuster v3.6  
@@ -67,6 +68,8 @@ Starting gobuster in directory enumeration mode
 /download (Status: 200) [Size: 20]  
 Progress: 4614 / 4615 (99.98%)  
 ===============================================================
+```
+
 
 /console gives us a Console Locked login that needs a pin.
 
@@ -85,13 +88,13 @@ rh:8000/download?id=3
 Trying other numbers we find image 4.
 
 <p align="left">
-  <img height=300 img src=./readme_assets/download.png/>
+  <img height=300 img src=./readme_assets/download.PNG/>
 </p>
 
 Any other number brings us to an error page that has some interesting information on it.
 
 <p align="left">
-  <img height=300 img src=./readme_assets/error-page.PNG/>
+  <img height=400 img src=./readme_assets/error-page.PNG/>
 </p>
 
 Researching Werkzeug/3.0.0 Python/3.8.10 we found a [Console PIN Exploit](https://exploit-notes.hdks.org/exploit/web/framework/python/werkzeug-pentesting/) that looked promising. 
