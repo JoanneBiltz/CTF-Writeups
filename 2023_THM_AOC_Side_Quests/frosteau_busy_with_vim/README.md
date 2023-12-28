@@ -6,7 +6,7 @@ This was a team effort with 4 other THM Discord members.
 
 To find the QR code that leads to this challenge you need to complete the task in Day 11 (Active Directory Jingle Bells, Shadow Spells) of [THM Advent of Cyber '23](https://tryhackme.com/room/adventofcyber2023). 
 1. While still logged in as Van Sprinkles, look through the files and directories available. Cat the chatlogs to see the message history between Van Sprinkles and his boss.
-Van Sprinkles: Hey boss, I was working on the images you requested. What do you think?
+```Van Sprinkles: Hey boss, I was working on the images you requested. What do you think?
 Boss: Ah, that will do well enough
 Van Sprinkles: But I thought the company was called Best Frostlingval Company or something. Are you sure this works?
 Boss: Yes yes yes! It's perfect! And stop sending screenshots of your full screen. You may end up leaking stuff!
@@ -16,6 +16,7 @@ Van Sprinkles: <i>Deleted Image</i>
 Boss: WHAT DID I JUST SAY ABOUT SCREENSHOTS??? You just leaked one of the keys for you-know-who...
 Van Sprinkles: Alright, alright. I've deleted it. Here's a cropped version of it
 Boss: The original image was fine. Please send it to my email ASAP.
+```
 
 2. In the chatlog_files directory you will find the images from the above chat, including the cropped screenshot.
 3. Download the screenshots and note the sizes. You will need to resize the cropped image back to it's original size to see the QR code.
@@ -28,7 +29,7 @@ Boss: The original image was fine. Please send it to my email ASAP.
 ## Frosteau Busy With Vim Introduction
 
 <p align="left">
-  <img height=500 img src=./readme_assets/challenge.PNG/>
+  <img height=100 img src=./readme_assets/challenge.PNG/>
 </p>
 
 Heh, well done! You've clawed your way through the CyberPolice's outer defenses. But don't get too cozy yet, you're still a pup in this pack with only limited reach in their network. If you wanna run with the big yetis, you gotta ice Frosteau's machine. That's where the juicy bits hide, all those case files, the whole stash. With that, you'll be howlin' with insight into their network. But keep your eyes peeled; Frosteau's no lone wolf, and with Elf McSkidy by his side, they've snuffed your trail before. Tread light, tread smart, stay frosty!
@@ -46,7 +47,7 @@ You are given an IP address and 5 questions to answer.
 If you look at the header image for the challenge you will see several hints.
 
 <p align="left">
-  <img height=300 img src=./readme_assets/hints.png/>
+  <img height=300 img src=./readme_assets/hints.PNG/>
 </p>
  It shows a vim, malware, and docker jail. 
 
@@ -73,7 +74,7 @@ telnet on 8095 opens directly in nano - and yet another good target
 
 Let's start with ftp. Logging in as anonymous takes you into an unknown directory that contains flags 1 and 2.
 <p align="left">
-  <img height=300 img src=./readme_assets/ftp2.png/>
+  <img height=200 img src=./readme_assets/ftp2.png/>
 </p>
 
 Cat flag 1 for the first flag  
@@ -104,7 +105,7 @@ At this point we decided to try a reverse shell using metasploit in order to get
 -telnet to 8065 and you will now have a meterpreter session. Use sessions -i 1 to get the meterpreter prompt.
 
 <p align="left">
-  <img height=300 img src=./readme_assets/meterpreter.PNG/>
+  <img height=500 img src=./readme_assets/meterpreter.PNG/>
 </p>
 
 You now have a shell. 
@@ -113,23 +114,23 @@ Searching for .txt files gives us the third flag, `/root/flag-3-of-4.txt`.
 
 
 <p align="left">
-  <img height=300 img src=./readme_assets/flag3.PNG/>
+  <img height=500 img src=./readme_assets/flag3.PNG/>
 </p>
 
 After a LOT more searching we determined that there must be another docker container we have to access. Doing a process search for dockerd shows us another user besides ubuntu with dockerd, root.
 
 <p align="left">
-  <img height=300 img src=./readme_assets/root.PNG/>
+  <img height=200 img src=./readme_assets/root.PNG/>
 </p>
 
 With this information we were able to find flag 4 and yetikey3.
 
 <p align="left">
-  <img height=300 img src=./readme_assets/files.PNG/>
+  <img height=500 img src=./readme_assets/files.PNG/>
 </p>
 
 <p align="left">
-  <img height=300 img src=./readme_assets/flags4-5.PNG/>
+  <img height=200 img src=./readme_assets/flags4-5.PNG/>
 </p>
 
 
