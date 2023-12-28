@@ -192,7 +192,7 @@ Up to this point, this is what the team found so far. I didn't detail the tons o
 
 ## Solution
 
-One of our team members ran across this [video](https://www.youtube.com/watch?v=Y1bFNZde33Q) which describes how to exploit the webcam and turn on telnet. From there we can telnet into the webcam.
+One of our team members ran across this [video](https://www.youtube.com/watch?v=Y1bFNZde33Q) which describes how to exploit the webcam using buffer overflow and then turn on telnet. From there we can telnet into the webcam.
 
 Here is the exploit. 
 
