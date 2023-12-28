@@ -1,7 +1,7 @@
 https://tryhackme.com/room/adventofcyber23sidequest
 
 <p align="left">
-  <img height=300 img src= side-quest.PNG/>
+  <img height=200 img src= side-quest.PNG/>
 </p>
 
 <p align="left">
