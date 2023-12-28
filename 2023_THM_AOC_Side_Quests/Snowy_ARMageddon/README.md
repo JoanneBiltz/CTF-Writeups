@@ -7,29 +7,29 @@ This was a team effort with 4 other THM Discord members.
 To find the QR code that leads to this challenge you need to play the game in Day 6 (Memory corruption, Memories of Christmas Past) of [THM Advent of Cyber '23](https://tryhackme.com/room/adventofcyber2023). 
 1. First you need to figure out that you can acquire a white yeti ornament by overflowing the buffer with the letter a in the inventory section.
 <p align="left">
-  <img height=100 img src=./readme_assets/white-yeti.PNG/>
+  <img height=50 img src=./readme_assets/white-yeti.PNG/>
 </p>
 2. Go back to the shopkeeper and he will tell you the yeti is a fake but you can buy a real blue yeti if you have enough coins. Apparently you don't have enough.
 3. Figure out what the max amount of coins you can get using the ascii characters on your keyboard. (4 tildes `~~~~`)
 4. Overflow the buffer with the 4 tildes and go back to the shopkeeper. He will trade your white yeti for the blue yeti.
 <p align="left">
-  <img height=100 img src=./readme_assets/blue-yeti.PNG/>
+  <img height=50 img src=./readme_assets/blue-yeti.PNG/>
 </p>
 5. Once you have the blue yeti, a new character will appear in the game. Let's call him Glitch. Go to Glitch and have a conversation. Take note of the hints and instructions he is giving you.
 <p align="left">
-  <img height=300 img src=./readme_assets/capture.PNG/>
+  <img height=200 img src=./readme_assets/capture.PNG/>
 </p>
 <p align="left">
-  <img height=200 img src=./readme_assets/message0.PNG/>
+  <img height=135 img src=./readme_assets/message0.PNG/>
 </p>
 <p align="left">
-  <img height=300 img src=./readme_assets/message01.PNG/>
+  <img height=130 img src=./readme_assets/message01.PNG/>
 </p>
 <p align="left">
-  <img height=300 img src=./readme_assets/message.PNG/>
+  <img height=125 img src=./readme_assets/message.PNG/>
 </p>
 <p align="left">
-  <img height=300 img src=./readme_assets/message2.PNG/>
+  <img height=150 img src=./readme_assets/message2.PNG/>
 </p>
 6. You need to overflow the buffer with all of the conditions met. To get exactly 31337 coins use iz in the coin section.
 <p align="left">
