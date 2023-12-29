@@ -250,9 +250,9 @@ Use the login info to login and get the flag for Question 1.
 
 One down and one to go!
 
-Our original solution for the next step was unintended and no longer avaible. Instead, you can use curl to access the Police Police login panel.
+*Our original solution for the next step was unintended and no longer avaible. Instead, you can use curl to access the Cyber Police login panel.*
 
-curl -s -u 'admin:Y3tiStarCur!ouspassword=admin' http://host:8080/ -L
+`curl -s -u 'admin:Y3tiStarCur!ouspassword=admin' http://host:8080/ -L`
 
 <p align="left">
   <img height=400 img src=./readme_assets/login2.PNG/>
