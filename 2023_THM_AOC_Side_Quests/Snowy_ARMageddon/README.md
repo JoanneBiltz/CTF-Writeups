@@ -250,7 +250,9 @@ Use the login info to login and get the flag for Question 1.
 
 One down and one to go!
 
-There's a forbidden page on http://host:8080/login.php but if you access it using /login.php/ there's a login panel.
+Our original solution for the next step was unintended and no longer avaible. Instead, you can use curl to access the Police Police login panel.
+
+curl -s -u 'admin:Y3tiStarCur!ouspassword=admin' http://host:8080/ -L
 
 <p align="left">
   <img height=400 img src=./readme_assets/login2.PNG/>
