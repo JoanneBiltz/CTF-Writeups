@@ -1,7 +1,5 @@
 # Snowy ARMageddon (THM Advent of Cyber '23 Side Quest 1 Difficulty: Insane)
 
-This was a team effort with 4 other THM Discord members. 
-
 ## Finding the QR Code
 
 To find the QR code that leads to this challenge you need to play the game in Day 6 (Memory corruption, Memories of Christmas Past) of [THM Advent of Cyber '23](https://tryhackme.com/room/adventofcyber2023).
@@ -139,7 +137,7 @@ Going to the port in a browser `http:\\host:50628` gives us:
 *Trivision NC-227WF HD 720P*
 
 Click on either button brings you to a login screen. Another attack target. Researched default login `admin/1234` but it doesn't work.
-We found several interesting articles [1](https://www.theregister.com/2016/11/30/iot_cameras_compromised_by_long_url/), [2](https://no-sec.net/arm-x-challenge-breaking-the-webs/) about using buffer overflow to hijack the camera. The cam is definitely vulnerable.
+I found several interesting articles [1](https://www.theregister.com/2016/11/30/iot_cameras_compromised_by_long_url/), [2](https://no-sec.net/arm-x-challenge-breaking-the-webs/) about using buffer overflow to hijack the camera. The cam is definitely vulnerable.
 
 <p align="left">
   <img height=400 img src=./readme_assets/cam-vuln.png/>
@@ -151,9 +149,9 @@ http://host:50628/admin/login.asp also pops up a login without loading the site.
   <img height=400 img src=./readme_assets/admin_loginasp.PNG/>
 </p>
 
-The team spent hours using hydra to try to brute force both the 8080 and 50628 logins with no luck. 
+I spent hours using hydra to try to brute force both the 8080 and 50628 logins with no luck. 
 
-Up to this point, this is what the team found so far. I didn't detail the tons of research that ultimately led to dead ends.
+Up to this point, this is what I so far. I didn't detail the tons of research that ultimately led to dead ends.
 
 ```
   Ports
@@ -192,7 +190,7 @@ Up to this point, this is what the team found so far. I didn't detail the tons o
 
 ## Solution
 
-One of our team members ran across this [video](https://www.youtube.com/watch?v=Y1bFNZde33Q) which describes how to exploit the webcam using buffer overflow and then turn on telnet. From there we can telnet into the webcam.
+I ran across this [video](https://www.youtube.com/watch?v=Y1bFNZde33Q) which describes how to exploit the webcam using buffer overflow and then turn on telnet. From there you can telnet into the webcam.
 
 Here is the exploit. 
 
@@ -229,9 +227,9 @@ Location: http://B���/�
                 </body></html>
 ```
 
-Now run `telnet host 23` and we are inside the cam! 
+Now run `telnet host 23` and you are inside the cam! 
 
-Searching through the directories and files we found a username and password in /var/etc/umconfig.txt.
+Searching through the directories and files I found a username and password in /var/etc/umconfig.txt.
 
 ```
 TABLE=users  
@@ -258,7 +256,7 @@ One down and one to go!
   <img height=400 img src=./readme_assets/login2.PNG/>
 </p>
 
-A different team member ran across a [Nosql-MongoDB Injection script](https://github.com/an0nlk/Nosql-MongoDB-injection-username-password-enumeration) that could be used to find usernames and passwords from the website.
+I ran across a [Nosql-MongoDB Injection script](https://github.com/an0nlk/Nosql-MongoDB-injection-username-password-enumeration) that could be used to find usernames and passwords from the website.
 
 Login Names: 
 
@@ -303,7 +301,7 @@ After you login using the names and passwords you get redirected to 403, but if 
 
 But, on the passwords side, the HoHoHacked makes sense and is more interesting.
 
-If you go into Burpsuite you can injected `HoHoHacked` where the password is and it gives you the username `Frosteau`. Login using `Frosteau` and `HoHoHacked`, refresh the page, and you have the contents of yetikey2.txt. 
+If you go into Burpsuite you can inject `HoHoHacked` where the password is and it gives you the username `Frosteau`. Login using `Frosteau` and `HoHoHacked`, refresh the page, and you have the contents of yetikey2.txt. 
 
 <p align="left">
   <img height=300 img src=./readme_assets/flag2.PNG/>
